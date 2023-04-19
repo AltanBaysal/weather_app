@@ -1,5 +1,11 @@
 class AppTexts {
-  static const String appName = "Melon";
+  static const String appName = "WeatherApp";
+  static const String degrees = "degrees";
+
+  static const String searchCountryCapitalsByRegion =
+      "Search country capitals by region";
+
+  /*
 
   static const String login = "Login";
   static const String resend = "Resend";
@@ -9,6 +15,7 @@ class AppTexts {
   static const String password = "Password";
   static const String required = "Required";
   static const String hi = "Hi, ";
+
   //2
   static const String sendCode = "Send Code";
   static const String passwordChanged = "Password Changed!";
@@ -46,6 +53,7 @@ class AppTexts {
       "Your password has been changed successfully.";
   static const String otpVerificationMessage =
       "Enter the verification code we just sent on your email address.";
+  */
 
   //Errors
   static const String weakPassword = "Weak Password";

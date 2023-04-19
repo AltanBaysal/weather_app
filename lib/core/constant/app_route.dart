@@ -3,5 +3,6 @@ class AppRoutes {
   static const String logInPage = "/LogIn";
   static const String signInPage = "/SignIn";
   static const String homePage = "/HomePage";
+  static const String weatherInfoPage = "/WeatherInfoPage";
   static const String errorPage = "/ErrorPage";
 }
