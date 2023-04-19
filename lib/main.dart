@@ -1,7 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:weather_app/core/_core_export.dart';
 
-void main() {
-  runApp(const WeatherApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await init();
+  runApp(
+    const ProviderScope(
+      // parent: ProviderContainer
+      child: WeatherApp(),
+    ),
+  );
 }
 
 class WeatherApp extends StatelessWidget {
@@ -9,9 +16,18 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      home: LandingPage(),
+    return MaterialApp(
+      builder: (context, child) {
+        sl<ScreenSize>().screenSize = MediaQuery.of(context);
+        return child ?? const ErrorPage();
+      },
+      showSemanticsDebugger: false,
+      debugShowCheckedModeBanner: false,
+      showPerformanceOverlay: false,
+      title: AppTexts.appName,
+      navigatorKey: GlobalContextKey.instance.globalKey,
+      initialRoute: AppRoutes.base,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
