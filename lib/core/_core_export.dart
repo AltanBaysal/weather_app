@@ -10,3 +10,4 @@ export 'utils/_utils_export.dart';
 //
 export 'package:weather_app/core/_package_export.dart';
 export 'package:weather_app/feature/_feature_export.dart';
+export 'package:weather_app/main.dart';

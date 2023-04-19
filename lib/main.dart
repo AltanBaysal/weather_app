@@ -4,10 +4,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await init();
   runApp(
-    const ProviderScope(
-      // parent: ProviderContainer
-      child: WeatherApp(),
-    ),
+    const ProviderScope(child: WeatherApp()),
   );
 }
 
@@ -26,7 +23,7 @@ class WeatherApp extends StatelessWidget {
       showPerformanceOverlay: false,
       title: AppTexts.appName,
       navigatorKey: GlobalContextKey.instance.globalKey,
-      initialRoute: AppRoutes.base,
+      initialRoute: AppRoutes.homePage,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
@@ -43,5 +40,5 @@ class LandingPage extends StatelessWidget {
 
 
 //localization ?
-//theme
+//theme ?
 //auth
