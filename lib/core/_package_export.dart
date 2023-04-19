@@ -5,3 +5,4 @@ export 'package:internet_connection_checker/internet_connection_checker.dart';
 export 'package:dio/dio.dart';
 export 'package:flutter_riverpod/flutter_riverpod.dart';
 export 'package:riverpod/riverpod.dart';
+export 'package:flutter/material.dart';
