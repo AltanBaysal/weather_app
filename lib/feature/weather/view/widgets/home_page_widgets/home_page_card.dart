@@ -37,12 +37,9 @@ class HomePageCard extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(
-                      height: sl<ScreenSize>().getHeightPercent(53 / 807),
-                      child: Image.asset(
-                        AppImagePaths.cloud,
-                        fit: BoxFit.contain,
-                      ),
+                    const AppSvgPicture(
+                      svg: AppIconPaths.cloud,
+                      percentage: 100 / 807,
                     ),
                     Text(
                       city,

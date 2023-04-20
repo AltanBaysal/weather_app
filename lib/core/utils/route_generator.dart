@@ -4,9 +4,9 @@ import 'package:weather_app/feature/weather/view/pages/detail_page.dart';
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case AppRoutes.base:
+      case AppRoutes.base: //TODO
         return MaterialPageRoute(
-          builder: (_) => const LandingPage(),
+          builder: (_) => const HomePage(),
         );
 
       case AppRoutes.homePage:

@@ -39,6 +39,14 @@ Future<void> initCore() async {
 }
 
 Future<void> initExternal() async {
+  sl.registerFactory(
+    () => Dio(),
+  );
+
+  final SharedPreferences sharedPreferences =
+      await SharedPreferences.getInstance();
+  sl.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
+
   sl.registerLazySingleton<InternetConnectionChecker>(
     () => InternetConnectionChecker(),
   );
