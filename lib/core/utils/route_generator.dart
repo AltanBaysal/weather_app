@@ -1,4 +1,5 @@
 import 'package:weather_app/core/_core_export.dart';
+import 'package:weather_app/feature/weather/view/pages/detail_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -11,6 +12,11 @@ class RouteGenerator {
       case AppRoutes.homePage:
         return MaterialPageRoute(
           builder: (_) => const HomePage(),
+        );
+
+      case AppRoutes.detailPage:
+        return MaterialPageRoute(
+          builder: (_) => const DetailPage(),
         );
 
       default:

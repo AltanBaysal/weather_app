@@ -2,6 +2,8 @@ class AppTexts {
   static const String appName = "WeatherApp";
   static const String degrees = "degrees";
 
+  static const String sliderView = "Slider view";
+
   static const String searchCountryCapitalsByRegion =
       "Search country capitals by region";
 

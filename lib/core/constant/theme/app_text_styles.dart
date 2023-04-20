@@ -1,46 +1,59 @@
 import 'package:weather_app/core/_core_export.dart';
 
 class AppTextStyles {
-  //Headlines
-  static final TextStyle title30BoldBlack = TextStyle(
-    fontWeight: FontWeight.bold,
-    fontSize: sl<ScreenSize>().getWidthPercent(.07),
+  //Inter
+  static final TextStyle inter14Regular = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: sl<ScreenSize>().getWidthPercent(.04), //?
+    //Inter
   );
 
-  static final TextStyle title22Bold = TextStyle(
-    fontWeight: FontWeight.bold,
-    fontSize: sl<ScreenSize>().getWidthPercent(.055),
-  );
-
-  //Body
-
-  static final TextStyle body16Medium = TextStyle(
+  static final TextStyle inter18Medium = TextStyle(
     fontWeight: FontWeight.w500,
-    fontSize: sl<ScreenSize>().getWidthPercent(.04),
+    fontSize: sl<ScreenSize>().getWidthPercent(.04), //?
+    //Inter
   );
 
-  static final TextStyle body15Medium = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: sl<ScreenSize>().getWidthPercent(.037),
-  );
-
-  static final TextStyle body15SemiBold = TextStyle(
+  static final TextStyle inter18SemiBold = TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: sl<ScreenSize>().getWidthPercent(.037),
+    fontSize: sl<ScreenSize>().getWidthPercent(35 / 807), //?
+    //Inter
   );
 
-  static final TextStyle body15Bold = TextStyle(
+  //Poppins
+  static final TextStyle poppins12SemiBold = TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: sl<ScreenSize>().getWidthPercent(.037),
+    fontSize: sl<ScreenSize>().getWidthPercent(.037), //?
+    //Poppins
   );
 
-  static final TextStyle body14SemiBold = TextStyle(
+  static final TextStyle poppins16Medium = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: sl<ScreenSize>().getWidthPercent(.037), //?
+    //Poppins
+  );
+
+  static final TextStyle poppins18SemiBold = TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: sl<ScreenSize>().getWidthPercent(.035),
+    fontSize: sl<ScreenSize>().getWidthPercent(.04), //?
+    //Poppins
   );
 
-  static final TextStyle body12Regular = TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: sl<ScreenSize>().getWidthPercent(.032),
+  static final TextStyle poppins20Medium = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: sl<ScreenSize>().getWidthPercent(.037), //?
+    //Poppins
+  );
+
+  static final TextStyle poppins24Bold = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: sl<ScreenSize>().getWidthPercent(.037), //?
+    //Poppins
+  );
+
+  static final TextStyle poppins45Bold = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: sl<ScreenSize>().getWidthPercent(.037), //?
+    //Poppins
   );
 }

@@ -5,31 +5,36 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.white,
-      body: Center(
-        child: GestureDetector(
-          child: Card(
-            shadowColor: AppColors.primaryShadowColor,
-            elevation: 6,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-              side: BorderSide(color: AppColors.lightGrey2),
-            ),
-            color: AppColors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      HomePageLocationText(text: "Germany"),
-                    ],
-                  ),
-                ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.white,
+        body: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: sl<ScreenSize>().getHeightPercent(40 / 807),
+          ),
+          child: Column(
+            children: [
+              const SearchCapitalTextField(),
+              const SizedBox(
+                height: 24,
               ),
-            ),
+              ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return const HomePageCard(
+                    city: "Berlin",
+                    country: "Germany",
+                    degree: "24",
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return const SizedBox(height: 16);
+                },
+              ),
+            ],
           ),
         ),
       ),

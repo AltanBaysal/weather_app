@@ -1,7 +1,7 @@
 import 'package:weather_app/core/_core_export.dart';
 
-class HomePageLocationText extends StatelessWidget {
-  const HomePageLocationText({
+class DetailPageLocationText extends StatelessWidget {
+  const DetailPageLocationText({
     super.key,
     required this.text,
   });
@@ -11,10 +11,11 @@ class HomePageLocationText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         const AppSvgPicture(
           svg: AppIconPaths.location,
-          color: AppColors.blue,
+          color: AppColors.white,
           percentage: .05,
         ),
         const SizedBox(
@@ -22,8 +23,8 @@ class HomePageLocationText extends StatelessWidget {
         ),
         Text(
           text,
-          style: AppTextStyles.title22Bold.copyWith(
-            color: AppColors.blue,
+          style: AppTextStyles.poppins24Bold.copyWith(
+            color: AppColors.white,
           ),
         ),
       ],
