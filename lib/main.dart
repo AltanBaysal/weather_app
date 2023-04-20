@@ -3,8 +3,13 @@ import 'package:weather_app/core/_core_export.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await init();
-  runApp(
-    const ProviderScope(child: WeatherApp()),
+  sl.allReady().then(
+    (value) async {
+      await sl<WeatherProvider>().fetchWeatherInfoList();
+      runApp(
+        const ProviderScope(child: WeatherApp()),
+      );
+    },
   );
 }
 

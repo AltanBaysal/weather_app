@@ -3,14 +3,16 @@ import 'package:weather_app/core/_core_export.dart';
 class HomePageCard extends StatelessWidget {
   const HomePageCard({
     super.key,
-    required this.country,
+    required this.index,
+    required this.region,
     required this.city,
-    required this.degree,
+    required this.temperature,
   });
 
-  final String country;
+  final int index;
+  final String region;
   final String city;
-  final String degree;
+  final String temperature;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class HomePageCard extends StatelessWidget {
       height: sl<ScreenSize>().getHeightPercent(152 / 807),
       child: GestureDetector(
         onTap: () {
+          sl<WeatherProvider>().pageViewInitialPage = index;
           RouteManager.pushNamed(AppRoutes.detailPage);
         },
         child: Card(
@@ -33,7 +36,7 @@ class HomePageCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                HomePageLocationText(text: country),
+                HomePageLocationText(text: region),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -48,7 +51,7 @@ class HomePageCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      degree,
+                      temperature,
                       style: AppTextStyles.poppins16Medium.copyWith(
                         color: AppColors.grey,
                       ),

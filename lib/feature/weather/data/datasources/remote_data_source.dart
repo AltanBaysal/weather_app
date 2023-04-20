@@ -12,7 +12,7 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
   Future<List<LocationInfoModel>> fetchCapitals() async {
     //TODO make cleaner
     final response = await sl<Dio>(instanceName: "restcountries").get(
-      "v3.1/all", //TODO ?
+      "v3.1/all?", //TODO ?
       queryParameters: {
         "fields": "capital,region,latlng",
       },
@@ -24,18 +24,24 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
 
     if (response.statusCode != 200) throw ServerException();
 
-    return jsonDecode(response.data).map<LocationInfoModel>(
-      (data) {
-        return LocationInfoModel.fromJson(data);
-      },
-    ).toList();
+    final List<LocationInfoModel> result = [];
+
+    for (var json in jsonDecode(response.data)) {
+      try {
+        result.add(LocationInfoModel.fromJson(json));
+      } catch (e) {
+        continue;
+      }
+    }
+
+    return result;
   }
 
   @override
   Future<WeatherInfoModel> fetchCapitalsWeatherInfo(String capital) async {
     //TODO make cleaner
     final response = await sl<Dio>(instanceName: "openweathermap").get(
-      "data/2.5/weather", //TODO ?
+      "data/2.5/weather?", //TODO ?
       queryParameters: {
         "q": capital,
         "units": "imperial",
@@ -47,8 +53,10 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
       ),
     );
 
-    if (response.statusCode != 200) throw ServerException();
+    if (response.statusCode == 200) {
+      return WeatherInfoModel.fromJson(jsonDecode(response.data));
+    }
 
-    return WeatherInfoModel.fromJson(jsonDecode(response.data));
+    throw ServerException();
   }
 }

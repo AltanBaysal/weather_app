@@ -4,11 +4,12 @@ class WeatherProvider extends ChangeNotifier {
   final FetchlWeatherListUsecase fetchlWeatherListUsecase;
   WeatherProvider({required this.fetchlWeatherListUsecase});
 
-  TextEditingController searchTextEditingController = TextEditingController();
+  int pageViewInitialPage = 0;
   List<LocationWeatherInfo> mainWeatherInfoList = [];
   List<LocationWeatherInfo> searchedWeatherInfoList = [];
   WeatherListStatus weatherListStatus = WeatherListStatus.loading;
 
+  //TODO Improve
   Future<void> fetchWeatherInfoList() async {
     weatherListStatus = WeatherListStatus.loading;
     notifyListeners();
@@ -19,29 +20,31 @@ class WeatherProvider extends ChangeNotifier {
       (failure) {
         weatherListStatus = WeatherListStatus.error;
       },
-      (result) {
-        if (result.isEmpty) {
+      (response) {
+        if (response.isEmpty) {
           weatherListStatus = WeatherListStatus.empty;
         } else {
           weatherListStatus = WeatherListStatus.loaded;
-          mainWeatherInfoList = result;
+          mainWeatherInfoList = response;
+          searchedWeatherInfoList = mainWeatherInfoList;
         }
       },
     );
     notifyListeners();
   }
 
-  void searchWeatherInfo() async {
+  void searchWeatherInfo(String searchText) async {
     weatherListStatus = WeatherListStatus.searching;
     notifyListeners();
-    final String searchText = searchTextEditingController.text;
-    print(searchText.trim());
+
     if (searchText.trim().isEmpty) {
       searchedWeatherInfoList = mainWeatherInfoList;
       weatherListStatus = WeatherListStatus.loaded;
     } else {
-      for (var element in mainWeatherInfoList) {
-        if (element.locationInfo.capital.contains(searchText)) {
+      searchedWeatherInfoList = [];
+      for (int i = 0; i < mainWeatherInfoList.length; i++) {
+        final element = mainWeatherInfoList[i];
+        if (element.locationInfo.capital.toLowerCase().startsWith(searchText)) {
           searchedWeatherInfoList.add(element);
         }
       }

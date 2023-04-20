@@ -10,27 +10,27 @@ Future<void> init() async {
 
 Future<void> initFeatures() async {
   //providers
-  /*
-  sl.registerLazySingleton<AuthenticationProvider>(
-    () => AuthenticationProvider(
-      autoLoginUsecase: sl(),
-      emailLogInUsecase: sl(),
-      emailSignInUsecase: sl(),
-      facebookLoginUsecase: sl(),
-      googleLoginUsecase: sl(),
-      signOutUsecase: sl(),
-      twitterLogInUsecase: sl(),
-    ),
-  );*/
+  sl.registerLazySingleton<WeatherProvider>(
+    () => WeatherProvider(fetchlWeatherListUsecase: sl()),
+  );
 
   //usecases
-  //sl.registerLazySingleton<AutoLoginUsecase>(() => AutoLoginUsecase(sl()));
+  sl.registerLazySingleton<FetchlWeatherListUsecase>(
+    () => FetchlWeatherListUsecase(sl()),
+  );
 
   //repository
-  /*
-  sl.registerLazySingleton<AuthenticationRepository>(
-    () => AuthenticationRepositoryImpl(networkInfo: sl()),
-  );*/
+  sl.registerLazySingleton<WeatherRepository>(
+    () => WeatherRepositoryImpl(
+      networkInfo: sl(),
+      weatherRemoteDataSource: sl(),
+    ),
+  );
+
+  //datasources
+  sl.registerLazySingleton<WeatherRemoteDataSource>(
+    () => WeatherRemoteDataSourceImpl(),
+  );
 }
 
 Future<void> initCore() async {
@@ -39,7 +39,6 @@ Future<void> initCore() async {
 }
 
 Future<void> initExternal() async {
-  //TODO make these constant
   sl.registerFactory<Dio>(
     () => Dio(BaseOptions(
       baseUrl: "https://restcountries.com/",
@@ -49,7 +48,7 @@ Future<void> initExternal() async {
 
   sl.registerFactory<Dio>(
     () => Dio(BaseOptions(
-      baseUrl: "https://api.openweathermap.org/data/2.5/",
+      baseUrl: "https://api.openweathermap.org/",
     )),
     instanceName: "openweathermap",
   );

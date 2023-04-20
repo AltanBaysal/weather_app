@@ -5,16 +5,36 @@ class SearchCapitalTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          gapPadding: 10,
+    return Card(
+      shadowColor: AppColors.primaryShadowColor,
+      color: AppColors.white,
+      elevation: 6,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+        side: BorderSide(color: AppColors.lightGrey2),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
+        child: Row(
+          children: [
+            Expanded(
+              child: TextFormField(
+                autofocus: false,
+                cursorColor: Colors.black,
+                onChanged: sl<WeatherProvider>().searchWeatherInfo,
+                decoration: InputDecoration(
+                  hintStyle: AppTextStyles.inter14Regular,
+                  hintText: AppTexts.searchCountryCapitalsByRegion,
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            const AppSvgPicture(
+              svg: AppIconPaths.magnifyingGlass,
+              color: AppColors.orange,
+            ),
+          ],
         ),
-        filled: true,
-        fillColor: AppColors.white,
-        hintStyle: AppTextStyles.inter14Regular,
-        hintText: AppTexts.searchCountryCapitalsByRegion,
       ),
     );
   }

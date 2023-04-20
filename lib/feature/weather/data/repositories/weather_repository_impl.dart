@@ -15,7 +15,7 @@ class WeatherRepositoryImpl implements WeatherRepository {
       fetchLocationWeatherInfoList(
     NoParams params,
   ) async {
-    if (await networkInfo.isConnected) {
+    if (!await networkInfo.isConnected) {
       return Left(NoInternetConnectionFailure());
     }
 
@@ -35,14 +35,13 @@ class WeatherRepositoryImpl implements WeatherRepository {
         weatherInfo = weatherRemoteDataSource.fetchCapitalsWeatherInfo(
           locationInfo.capital,
         );
+        result.add(LocationWeatherInfo(
+          locationInfo: locationInfo,
+          weatherInfo: await weatherInfo,
+        ));
       } catch (e) {
         continue;
       }
-
-      result.add(LocationWeatherInfo(
-        locationInfo: locationInfo,
-        weatherInfo: await weatherInfo,
-      ));
     }
 
     return Right(result);

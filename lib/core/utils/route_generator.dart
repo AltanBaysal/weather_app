@@ -1,5 +1,4 @@
 import 'package:weather_app/core/_core_export.dart';
-import 'package:weather_app/feature/weather/view/pages/detail_page.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -25,11 +24,10 @@ class RouteGenerator {
   }
 
   static Route<dynamic> _errorRoute() {
-    throw UnimplementedError();
-    /*
     return MaterialPageRoute(builder: (_) {
-      return const ErrorPage();
+      return const Scaffold(
+        body: Text("Error"),
+      );
     });
-    */
   }
 }

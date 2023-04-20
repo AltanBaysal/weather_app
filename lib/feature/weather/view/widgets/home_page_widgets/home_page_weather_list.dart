@@ -5,15 +5,18 @@ class HomePageWeatherList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    List<LocationWeatherInfo> list =
+        ref.watch(Providers.authentication).searchedWeatherInfoList;
     return ListView.separated(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 5,
+      itemCount: list.length,
       itemBuilder: (context, index) {
-        return const HomePageCard(
-          city: "Berlin",
-          country: "Germany",
-          degree: "24",
+        return HomePageCard(
+          index: index,
+          city: list[index].locationInfo.capital,
+          region: list[index].locationInfo.region,
+          temperature: list[index].weatherInfo.temperature,
         );
       },
       separatorBuilder: (context, index) {

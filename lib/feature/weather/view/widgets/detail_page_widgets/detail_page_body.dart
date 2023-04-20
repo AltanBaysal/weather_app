@@ -18,7 +18,7 @@ class DetailPageBody extends StatelessWidget {
         SizedBox(
           height: sl<ScreenSize>().getHeightPercent(38 / 807),
         ),
-        DetailPageLocationText(text: locationInfo.capital),
+        DetailPageLocationText(text: locationInfo.region),
         SizedBox(
           height: sl<ScreenSize>().getHeightPercent(38 / 807),
         ),
