@@ -9,6 +9,6 @@ class FetchlWeatherListUsecase
 
   @override
   Future<Either<Failure, List<LocationWeatherInfo>>> call(NoParams params) {
-    return weatherRepository.fetchWeatherInfoList(params);
+    return weatherRepository.fetchLocationWeatherInfoList(params);
   }
 }

@@ -14,26 +14,12 @@ class HomePage extends StatelessWidget {
             vertical: sl<ScreenSize>().getHeightPercent(40 / 807),
           ),
           child: Column(
-            children: [
-              const SearchCapitalTextField(),
-              const SizedBox(
+            children: const [
+              SearchCapitalTextField(),
+              SizedBox(
                 height: 24,
               ),
-              ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return const HomePageCard(
-                    city: "Berlin",
-                    country: "Germany",
-                    degree: "24",
-                  );
-                },
-                separatorBuilder: (context, index) {
-                  return const SizedBox(height: 16);
-                },
-              ),
+              HomePageWeatherList(),
             ],
           ),
         ),

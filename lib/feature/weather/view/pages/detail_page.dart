@@ -1,10 +1,10 @@
 import 'package:weather_app/core/_core_export.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends ConsumerWidget {
   const DetailPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       backgroundColor: AppColors.darkBlue,
       body: Column(
@@ -14,58 +14,9 @@ class DetailPage extends StatelessWidget {
           const DetailPageAppBar(),
           Expanded(
             child: PageView.builder(
+              //controller: ref.watch(), //TODO
               itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    SizedBox(
-                      height: sl<ScreenSize>().getHeightPercent(38 / 807),
-                    ),
-                    const DetailPageLocationText(text: "France"),
-                    SizedBox(
-                      height: sl<ScreenSize>().getHeightPercent(38 / 807),
-                    ),
-                    SizedBox(
-                      height: sl<ScreenSize>().getHeightPercent(88 / 807),
-                      child: Image.asset(
-                        AppImagePaths.cloud,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    Text(
-                      "Chance of rain",
-                      style: AppTextStyles.inter14Regular.copyWith(
-                        color: AppColors.white,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      "Partly Cloudly",
-                      style: AppTextStyles.poppins18SemiBold.copyWith(
-                        color: AppColors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      height: sl<ScreenSize>().getHeightPercent(45 / 807),
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "32",
-                          style: AppTextStyles.poppins45Bold.copyWith(
-                            color: AppColors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    const DetailPageInfoRow()
-                  ],
-                );
+                return Container(); //LocationWeatherInfo(locationInfo: )
               },
             ),
           ),

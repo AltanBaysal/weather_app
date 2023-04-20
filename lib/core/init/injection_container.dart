@@ -39,8 +39,19 @@ Future<void> initCore() async {
 }
 
 Future<void> initExternal() async {
-  sl.registerFactory(
-    () => Dio(),
+  //TODO make these constant
+  sl.registerFactory<Dio>(
+    () => Dio(BaseOptions(
+      baseUrl: "https://restcountries.com/",
+    )),
+    instanceName: "restcountries",
+  );
+
+  sl.registerFactory<Dio>(
+    () => Dio(BaseOptions(
+      baseUrl: "https://api.openweathermap.org/data/2.5/",
+    )),
+    instanceName: "openweathermap",
   );
 
   final SharedPreferences sharedPreferences =
