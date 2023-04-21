@@ -46,4 +46,34 @@ class WeatherRepositoryImpl implements WeatherRepository {
 
     return Right(result);
   }
+
+  @override
+  Future<Either<Failure, List<LocationInfo>>> fetchLocationInfoList(
+    NoParams params,
+  ) async {
+    if (!await networkInfo.isConnected) {
+      return Left(NoInternetConnectionFailure());
+    }
+    try {
+      return Right(await weatherRemoteDataSource.fetchCapitals());
+    } catch (e) {
+      return Left(UnImplementedFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, WeatherInfo>> fetchWeatherInfo(
+    FetchWeatherInfoParam param,
+  ) async {
+    if (!await networkInfo.isConnected) {
+      return Left(NoInternetConnectionFailure());
+    }
+    try {
+      return Right(await weatherRemoteDataSource.fetchCapitalsWeatherInfo(
+        param.capital,
+      ));
+    } catch (e) {
+      return Left(UnImplementedFailure());
+    }
+  }
 }

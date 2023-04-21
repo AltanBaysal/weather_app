@@ -35,7 +35,7 @@ class AppTextStyles {
 
   static final TextStyle poppins20Medium = GoogleFonts.poppins(
     fontWeight: FontWeight.w500,
-    fontSize: sl<ScreenSize>().getWidthPercent(.054),
+    fontSize: sl<ScreenSize>().getWidthPercent(.052),
   );
 
   static final TextStyle poppins22Regular = GoogleFonts.poppins(

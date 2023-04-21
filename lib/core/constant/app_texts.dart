@@ -4,6 +4,8 @@ class AppTexts {
   static const String degrees = " degrees";
   static const String sliderView = "Slider view";
   static const String chanceOfRain = "Chance of rain";
+  static const String thereIsNothingToShow = "There is nothing to show";
+  static const String noResult = "No result";
   static const String searchCountryCapitalsByRegion =
       "Search country capitals by region";
 

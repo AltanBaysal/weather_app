@@ -1,32 +1,52 @@
 import 'package:weather_app/core/_core_export.dart';
 
 class WeatherProvider extends ChangeNotifier {
-  final FetchlWeatherListUsecase fetchlWeatherListUsecase;
-  WeatherProvider({required this.fetchlWeatherListUsecase});
+  //final FetchlWeatherListUsecase fetchlWeatherListUsecase;
+  final FetchLocationInfoListUsecase fetchLocationInfoListUsecase;
+  final FetchlWeatherInfoUsecase fetchlWeatherInfoUsecase;
+
+  WeatherProvider({
+    //required this.fetchlWeatherListUsecase,
+    required this.fetchLocationInfoListUsecase,
+    required this.fetchlWeatherInfoUsecase,
+  });
 
   int pageViewInitialPage = 0;
   List<LocationWeatherInfo> mainWeatherInfoList = [];
   List<LocationWeatherInfo> searchedWeatherInfoList = [];
   WeatherListStatus weatherListStatus = WeatherListStatus.loading;
 
-  //TODO Improve
   Future<void> fetchWeatherInfoList() async {
     weatherListStatus = WeatherListStatus.loading;
     notifyListeners();
 
-    final result = await fetchlWeatherListUsecase(NoParams());
-
+    final result = await fetchLocationInfoListUsecase(NoParams());
     result.fold(
       (failure) {
         weatherListStatus = WeatherListStatus.error;
       },
-      (response) {
-        if (response.isEmpty) {
+      (locationInfoList) async {
+        if (locationInfoList.isEmpty) {
           weatherListStatus = WeatherListStatus.empty;
         } else {
+          for (var locationInfo in locationInfoList) {
+            final response = await fetchlWeatherInfoUsecase(
+              FetchWeatherInfoParam(locationInfo.capital),
+            );
+
+            response.fold(
+              (l) {},
+              (weatherInfo) {
+                mainWeatherInfoList.add(LocationWeatherInfo(
+                  locationInfo: locationInfo,
+                  weatherInfo: weatherInfo,
+                ));
+              },
+            );
+            searchedWeatherInfoList = mainWeatherInfoList;
+            notifyListeners();
+          }
           weatherListStatus = WeatherListStatus.loaded;
-          mainWeatherInfoList = response;
-          searchedWeatherInfoList = mainWeatherInfoList;
         }
       },
     );

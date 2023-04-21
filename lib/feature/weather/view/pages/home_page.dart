@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
             children: const [
               SearchCapitalTextField(),
               SizedBox(height: 18),
-              HomePageWeatherList(),
+              HomePageBody(),
             ],
           ),
         ),

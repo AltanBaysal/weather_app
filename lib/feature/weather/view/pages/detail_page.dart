@@ -6,7 +6,7 @@ class DetailPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     List<LocationWeatherInfo> list =
-        ref.watch(Providers.authentication).searchedWeatherInfoList;
+        ref.watch(Providers.weather).searchedWeatherInfoList;
     return Scaffold(
       backgroundColor: AppColors.darkBlue,
       body: Column(

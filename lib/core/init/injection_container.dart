@@ -12,7 +12,11 @@ Future<void> init() async {
 Future<void> initFeatures() async {
   //providers
   sl.registerLazySingleton<WeatherProvider>(
-    () => WeatherProvider(fetchlWeatherListUsecase: sl()),
+    () => WeatherProvider(
+      //fetchlWeatherListUsecase: sl(),
+      fetchLocationInfoListUsecase: sl(),
+      fetchlWeatherInfoUsecase: sl(),
+    ),
   );
 
   sl.registerLazySingleton<AuthenticationProvider>(
@@ -25,6 +29,12 @@ Future<void> initFeatures() async {
   //usecases
   sl.registerLazySingleton<FetchlWeatherListUsecase>(
     () => FetchlWeatherListUsecase(sl()),
+  );
+  sl.registerLazySingleton<FetchLocationInfoListUsecase>(
+    () => FetchLocationInfoListUsecase(sl()),
+  );
+  sl.registerLazySingleton<FetchlWeatherInfoUsecase>(
+    () => FetchlWeatherInfoUsecase(sl()),
   );
 
   sl.registerLazySingleton<EmailLogInUsecase>(() => EmailLogInUsecase(sl()));

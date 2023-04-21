@@ -6,7 +6,7 @@ class HomePageWeatherList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     List<LocationWeatherInfo> list =
-        ref.watch(Providers.authentication).searchedWeatherInfoList;
+        ref.watch(Providers.weather).searchedWeatherInfoList;
     return ListView.separated(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),

@@ -79,7 +79,7 @@ class AuthenticationProvider extends ChangeNotifier {
       SnackBar(
         duration: const Duration(seconds: 3),
         margin: const EdgeInsets.only(bottom: 64),
-        backgroundColor: Color.fromARGB(189, 255, 135, 135),
+        backgroundColor: AppColors.transparentRed,
         behavior: SnackBarBehavior.floating,
         elevation: 0,
         content: Container(
