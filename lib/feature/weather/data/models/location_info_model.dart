@@ -8,7 +8,7 @@ class LocationInfoModel extends LocationInfo {
 
   LocationInfoModel.fromJson(Map<String, dynamic> json)
       : super(
-          capital: json["capital"][0], //TODO boş gelme ihtimali var
+          capital: json["capital"][0],
           region: json["region"],
         );
 }

@@ -12,14 +12,7 @@ class DetailPageAppBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          GestureDetector(
-            onTap: RouteManager.back,
-            child: Icon(
-              Icons.arrow_back,
-              color: AppColors.white,
-              size: sl<ScreenSize>().getWidthPercent(.05),
-            ),
-          ),
+          const CustomBackButton(),
           SizedBox(
             width: sl<ScreenSize>().getWidthPercent(46 / 390),
           ),

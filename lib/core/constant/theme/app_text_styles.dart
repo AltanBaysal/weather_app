@@ -56,4 +56,18 @@ class AppTextStyles {
     fontSize: sl<ScreenSize>().getWidthPercent(.037), //?
     //Poppins
   );
+
+  ////TODO will removed
+  //Headlines
+  static TextStyle title30BoldBlack = TextStyle(
+    fontFamily: "Urbanist",
+    fontWeight: FontWeight.bold,
+    fontSize: sl<ScreenSize>().getWidthPercent(.07),
+  );
+
+  static TextStyle title22Bold = TextStyle(
+    fontFamily: "Urbanist",
+    fontWeight: FontWeight.bold,
+    fontSize: sl<ScreenSize>().getWidthPercent(.055),
+  );
 }

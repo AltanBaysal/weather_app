@@ -21,4 +21,9 @@ class AppColors {
   static const Color grey = Color.fromARGB(255, 85, 85, 85); //#555555
 
   static const Color darkGrey = Color.fromARGB(255, 102, 102, 102); //#666666
+
+  //
+  static const Color darkPurple = Color.fromARGB(255, 30, 35, 44);
+  static const Color green = Color.fromARGB(255, 53, 194, 194);
+  static const Color transparentRed = Color.fromARGB(189, 255, 135, 135);
 }

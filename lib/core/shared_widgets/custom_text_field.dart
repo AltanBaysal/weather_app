@@ -3,7 +3,7 @@ import 'package:weather_app/core/_core_export.dart';
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
-    required this.height,
+    this.height,
     this.hintText = "",
     this.obscureText = false,
     this.onChanged,
@@ -20,7 +20,7 @@ class CustomTextField extends StatelessWidget {
   final Color? color;
   final bool obscureText;
   final Widget? suffix;
-  final double height;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
@@ -29,22 +29,25 @@ class CustomTextField extends StatelessWidget {
       child: Card(
         shadowColor: AppColors.primaryShadowColor,
         elevation: 6,
+        color: color,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
           side: BorderSide(color: AppColors.lightGrey2),
         ),
-        color: AppColors.white,
         child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: TextFormField(
-            cursorColor: Colors.black,
-            obscureText: obscureText,
-            onChanged: onChanged,
-            controller: controller,
-            decoration: InputDecoration(
-              hintStyle: hintStyle,
-              hintText: hintText,
-              border: InputBorder.none,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Center(
+            child: TextFormField(
+              cursorColor: Colors.black,
+              obscureText: obscureText,
+              onChanged: onChanged,
+              controller: controller,
+              decoration: InputDecoration(
+                suffix: suffix,
+                hintStyle: hintStyle,
+                hintText: hintText,
+                border: InputBorder.none,
+              ),
             ),
           ),
         ),

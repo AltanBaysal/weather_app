@@ -5,7 +5,7 @@ Future<void> main() async {
   await init();
   sl.allReady().then(
     (value) async {
-      await sl<WeatherProvider>().fetchWeatherInfoList();
+      sl<WeatherProvider>().fetchWeatherInfoList();
       runApp(
         const ProviderScope(child: WeatherApp()),
       );
@@ -28,13 +28,8 @@ class WeatherApp extends StatelessWidget {
       showPerformanceOverlay: false,
       title: AppTexts.appName,
       navigatorKey: GlobalContextKey.instance.globalKey,
-      initialRoute: AppRoutes.homePage,
+      initialRoute: AppRoutes.base,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
-
-
-//localization ?
-//theme ?
-//auth

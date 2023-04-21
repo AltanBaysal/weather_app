@@ -1,4 +1,5 @@
 import 'package:weather_app/core/_core_export.dart';
+import 'package:weather_app/feature/onboarding/data/repositories/authentication_repository_impl.dart';
 
 final sl = GetIt.instance;
 
@@ -14,12 +15,29 @@ Future<void> initFeatures() async {
     () => WeatherProvider(fetchlWeatherListUsecase: sl()),
   );
 
+  sl.registerLazySingleton<AuthenticationProvider>(
+    () => AuthenticationProvider(
+      emailLogInUsecase: sl(),
+      emailSignInUsecase: sl(),
+    ),
+  );
+
   //usecases
   sl.registerLazySingleton<FetchlWeatherListUsecase>(
     () => FetchlWeatherListUsecase(sl()),
   );
 
+  sl.registerLazySingleton<EmailLogInUsecase>(() => EmailLogInUsecase(sl()));
+  sl.registerLazySingleton<EmailSignInUsecase>(() => EmailSignInUsecase(sl()));
+
   //repository
+  sl.registerLazySingleton<AuthenticationRepository>(() {
+    return AuthenticationRepositoryImpl(
+      networkInfo: sl(),
+      onboardingDataSource: sl(),
+    );
+  });
+
   sl.registerLazySingleton<WeatherRepository>(
     () => WeatherRepositoryImpl(
       networkInfo: sl(),
@@ -28,6 +46,12 @@ Future<void> initFeatures() async {
   );
 
   //datasources
+  sl.registerLazySingleton<OnboardingLocalDataSource>(
+    () => OnboardingLocalDataSourceImpl(
+      sharedPreferences: sl(),
+    ),
+  );
+
   sl.registerLazySingleton<WeatherRemoteDataSource>(
     () => WeatherRemoteDataSourceImpl(),
   );

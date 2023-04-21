@@ -35,3 +35,11 @@ class UnImplementedFailure extends Failure {
   @override
   String? get message => null;
 }
+
+class WrongEmailOrPasswordFailure extends Failure {
+  @override
+  List<Object?> get props => [];
+
+  @override
+  String? get message => AppTexts.wrongPasswordOrEmail;
+}

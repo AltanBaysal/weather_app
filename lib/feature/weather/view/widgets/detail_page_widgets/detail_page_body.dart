@@ -22,13 +22,8 @@ class DetailPageBody extends StatelessWidget {
         SizedBox(
           height: sl<ScreenSize>().getHeightPercent(38 / 807),
         ),
-        SizedBox(
-          height: sl<ScreenSize>().getHeightPercent(88 / 807),
-          child: Image.asset(
-            AppImagePaths.cloud,
-            fit: BoxFit.contain,
-          ),
-        ),
+        //88 / 807
+        const AppSvgPicture(svg: AppIconPaths.cloud, percentage: 88 / 807),
         Text(
           AppTexts.chanceOfRain,
           style: AppTextStyles.inter14Regular.copyWith(
