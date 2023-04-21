@@ -12,7 +12,7 @@ class WeatherInfoModel extends WeatherInfo {
 
   WeatherInfoModel.fromJson(Map<String, dynamic> json)
       : super(
-          temperature: json["main"]["temp"].toString(),
+          temperature: json["main"]["temp"].toInt().toString(),
           description: json["weather"][0]["description"],
           chanceOfRain: json["clouds"]["all"].toString(),
           sunliness: (100 - json["clouds"]["all"]).toString(),

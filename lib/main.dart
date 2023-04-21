@@ -28,7 +28,7 @@ class WeatherApp extends StatelessWidget {
       showPerformanceOverlay: false,
       title: AppTexts.appName,
       navigatorKey: GlobalContextKey.instance.globalKey,
-      initialRoute: AppRoutes.homePage,
+      initialRoute: AppRoutes.logInPage,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }

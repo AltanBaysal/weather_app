@@ -33,7 +33,7 @@ class HomePageBody extends ConsumerWidget {
             SizedBox(
               height: sl<ScreenSize>().getHeightPercent(0.03),
             ),
-            const Text(AppTexts.noResult),
+            const Text(AppTexts.noResultFound),
           ],
         );
       case WeatherListStatus.searching:

@@ -44,10 +44,15 @@ class HomePageCard extends StatelessWidget {
                       svg: AppIconPaths.cloud,
                       percentage: 122 / 807,
                     ),
-                    Text(
-                      city,
-                      style: AppTextStyles.poppins20Medium.copyWith(
-                        color: AppColors.grey,
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          overflow: TextOverflow.ellipsis,
+                          city,
+                          style: AppTextStyles.poppins20Medium.copyWith(
+                            color: AppColors.grey,
+                          ),
+                        ),
                       ),
                     ),
                     Text(

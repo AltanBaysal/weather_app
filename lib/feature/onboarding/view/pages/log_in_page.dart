@@ -15,7 +15,7 @@ class LogInPage extends ConsumerWidget {
             child: CustomBackButton(),
           ),
         ),
-        SizedBox(height: sl<ScreenSize>().getHeightPercent(.123)),
+        SizedBox(height: sl<ScreenSize>().getHeightPercent(0.0288)),
         HeaderText(
           text: AppTexts.welcomebackGladToSeeYouAgain,
           style: AppTextStyles.title30BoldBlack,
