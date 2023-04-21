@@ -11,14 +11,12 @@ class HomePage extends StatelessWidget {
         body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(
             horizontal: 16,
-            vertical: sl<ScreenSize>().getHeightPercent(40 / 807),
+            vertical: sl<ScreenSize>().getHeightPercent(28 / 807),
           ),
           child: Column(
             children: const [
               SearchCapitalTextField(),
-              SizedBox(
-                height: 24,
-              ),
+              SizedBox(height: 18),
               HomePageWeatherList(),
             ],
           ),

@@ -14,7 +14,7 @@ class SearchCapitalTextField extends StatelessWidget {
         side: BorderSide(color: AppColors.lightGrey2),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 16),
         child: Row(
           children: [
             Expanded(
@@ -23,7 +23,9 @@ class SearchCapitalTextField extends StatelessWidget {
                 cursorColor: Colors.black,
                 onChanged: sl<WeatherProvider>().searchWeatherInfo,
                 decoration: InputDecoration(
-                  hintStyle: AppTextStyles.inter14Regular,
+                  hintStyle: AppTextStyles.inter14Regular.copyWith(
+                    color: AppColors.lightGrey,
+                  ),
                   hintText: AppTexts.searchCountryCapitalsByRegion,
                   border: InputBorder.none,
                 ),
@@ -32,6 +34,7 @@ class SearchCapitalTextField extends StatelessWidget {
             const AppSvgPicture(
               svg: AppIconPaths.magnifyingGlass,
               color: AppColors.orange,
+              percentage: 40 / 807,
             ),
           ],
         ),

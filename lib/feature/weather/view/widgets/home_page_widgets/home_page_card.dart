@@ -17,7 +17,7 @@ class HomePageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: sl<ScreenSize>().getHeightPercent(152 / 807),
+      height: sl<ScreenSize>().getHeightPercent(160 / 807),
       child: GestureDetector(
         onTap: () {
           sl<WeatherProvider>().pageViewInitialPage = index;
@@ -25,10 +25,10 @@ class HomePageCard extends StatelessWidget {
         },
         child: Card(
           shadowColor: AppColors.primaryShadowColor,
-          elevation: 6,
+          elevation: 3,
           shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
-            side: BorderSide(color: AppColors.lightGrey2),
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            side: BorderSide(color: AppColors.lightGrey3),
           ),
           color: AppColors.white,
           child: Padding(
@@ -42,7 +42,7 @@ class HomePageCard extends StatelessWidget {
                   children: [
                     const AppSvgPicture(
                       svg: AppIconPaths.cloud,
-                      percentage: 100 / 807,
+                      percentage: 122 / 807,
                     ),
                     Text(
                       city,
@@ -51,7 +51,7 @@ class HomePageCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      temperature,
+                      temperature + AppTexts.degrees,
                       style: AppTextStyles.poppins16Medium.copyWith(
                         color: AppColors.grey,
                       ),

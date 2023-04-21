@@ -17,7 +17,7 @@ class CustomBackButton extends StatelessWidget {
       child: Icon(
         Icons.arrow_back,
         color: color ?? AppColors.white,
-        size: size ?? sl<ScreenSize>().getWidthPercent(.05),
+        size: size ?? sl<ScreenSize>().getWidthPercent(.06),
       ),
     );
   }

@@ -16,7 +16,7 @@ class DetailPageLocationText extends StatelessWidget {
         const AppSvgPicture(
           svg: AppIconPaths.location,
           color: AppColors.white,
-          percentage: .05,
+          percentage: .058,
         ),
         const SizedBox(
           width: 13,

@@ -20,7 +20,7 @@ class HomePageWeatherList extends ConsumerWidget {
         );
       },
       separatorBuilder: (context, index) {
-        return const SizedBox(height: 16);
+        return const SizedBox(height: 8);
       },
     );
   }

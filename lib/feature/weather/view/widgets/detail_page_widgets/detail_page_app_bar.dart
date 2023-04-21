@@ -7,7 +7,7 @@ class DetailPageAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 25,
+        horizontal: 12,
         vertical: 20,
       ),
       child: Row(

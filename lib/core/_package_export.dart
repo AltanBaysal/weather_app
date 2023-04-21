@@ -7,3 +7,4 @@ export 'package:flutter_riverpod/flutter_riverpod.dart';
 export 'package:riverpod/riverpod.dart';
 export 'package:flutter/material.dart';
 export 'package:shared_preferences/shared_preferences.dart';
+export 'package:google_fonts/google_fonts.dart';

@@ -15,7 +15,7 @@ class HomePageLocationText extends StatelessWidget {
         const AppSvgPicture(
           svg: AppIconPaths.location,
           color: AppColors.blue,
-          percentage: .05,
+          percentage: .055,
         ),
         const SizedBox(
           width: 13,

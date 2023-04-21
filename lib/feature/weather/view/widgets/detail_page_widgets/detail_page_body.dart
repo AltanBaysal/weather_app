@@ -16,16 +16,18 @@ class DetailPageBody extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: sl<ScreenSize>().getHeightPercent(38 / 807),
+          height: sl<ScreenSize>().getHeightPercent(48 / 807),
         ),
         DetailPageLocationText(text: locationInfo.region),
         SizedBox(
-          height: sl<ScreenSize>().getHeightPercent(38 / 807),
+          height: sl<ScreenSize>().getHeightPercent(34 / 807),
         ),
-        //88 / 807
-        const AppSvgPicture(svg: AppIconPaths.cloud, percentage: 88 / 807),
+        const AppSvgPicture(svg: AppIconPaths.cloud, percentage: 94 / 390),
+        SizedBox(
+          height: sl<ScreenSize>().getHeightPercent(18 / 807),
+        ),
         Text(
-          AppTexts.chanceOfRain,
+          "${AppTexts.chanceOfRain} ${weatherInfo.chanceOfRain}%",
           style: AppTextStyles.inter14Regular.copyWith(
             color: AppColors.white,
           ),
@@ -44,12 +46,28 @@ class DetailPageBody extends StatelessWidget {
         ),
         Row(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               weatherInfo.temperature,
               style: AppTextStyles.poppins45Bold.copyWith(
                 color: AppColors.white,
               ),
+            ),
+            Row(
+              children: [
+                const AppSvgPicture(
+                  svg: AppIconPaths.circle,
+                  color: Colors.white,
+                  percentage: 13 / 390,
+                ),
+                Text(
+                  " F",
+                  style: AppTextStyles.poppins22Regular.copyWith(
+                    color: AppColors.white,
+                  ),
+                ),
+              ],
             ),
           ],
         ),

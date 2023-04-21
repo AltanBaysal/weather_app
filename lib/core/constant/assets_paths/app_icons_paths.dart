@@ -6,6 +6,7 @@ class AppIconPaths {
   static const String sun = "assets/icons/sun.svg";
   static const String wind = "assets/icons/wind.svg";
   static const String cloud = "assets/icons/cloud.svg";
+  static const String circle = "assets/icons/circle.svg";
 
   //onboarding
   static const String error = "assets/icons/sun.svg";

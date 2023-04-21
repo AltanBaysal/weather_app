@@ -18,7 +18,7 @@ class DetailPageIconText extends StatelessWidget {
         AppSvgPicture(
           svg: icon,
           color: Colors.white,
-          percentage: 50 / 807,
+          percentage: 15 / 390,
         ),
         const SizedBox(width: 7),
         Text(
