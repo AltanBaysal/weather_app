@@ -10,7 +10,6 @@ abstract class WeatherRemoteDataSource {
 class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
   @override
   Future<List<LocationInfoModel>> fetchCapitals() async {
-    //TODO make cleaner
     final response = await sl<Dio>(instanceName: "restcountries").get(
       "v3.1/all?",
       queryParameters: {
@@ -39,7 +38,6 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
 
   @override
   Future<WeatherInfoModel> fetchCapitalsWeatherInfo(String capital) async {
-    //TODO make cleaner
     final response = await sl<Dio>(instanceName: "openweathermap").get(
       "data/2.5/weather?",
       queryParameters: {

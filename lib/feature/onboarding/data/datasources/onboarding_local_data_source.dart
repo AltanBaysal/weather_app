@@ -18,7 +18,6 @@ class OnboardingLocalDataSourceImpl implements OnboardingLocalDataSource {
   Future<void> cacheUserCredential(EmailSignInParam emailSignInParam) async {
     await sharedPreferences.setString(
       emailSignInParam.email,
-      //TODO Improve
       jsonEncode({
         "name": emailSignInParam.name,
         "email": emailSignInParam.email,
