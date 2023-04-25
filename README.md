@@ -3,8 +3,8 @@
 
 ## Features
 
-#### ⚡Dio
 #### ⚡Weather Info of All Capitals
+#### ⚡Search Weather Info
 #### ⚡Email sign in
 #### ⚡Email log in
 
